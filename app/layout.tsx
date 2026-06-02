@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans} from "next/font/google";
+import { Plus_Jakarta_Sans, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
-
-const Font_sans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight:["200","300","400","500","600","700"],
-  variable:"--font-sans"
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "MediLink",
@@ -22,7 +18,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${Font_sans.variable}  h-full antialiased`}
+      className={cn("h-full", "antialiased", "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
